@@ -3,45 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Icon Animation</title>
+  <title>2 Timer</title>
   <style>
-    /* Reset margins and ensure full viewport height */
+    /* Reset and set dark background */
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #1a1a1a; /* Dark background */
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
     }
 
-    /* Container for the animated icon */
-    .icon-wrapper {
-      font-size: 8rem; /* Large icon size */
-      display: inline-block;
-      animation: pulse 1.5s ease-in-out infinite; /* Continuous pulsing animation */
+    /* Top text styling */
+    .top-text {
+      position: absolute;
+      top: 15%;
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-align: center;
+      /* Slight fade-in for the text */
+      animation: textFade 2s ease-in-out;
     }
 
-    /* Keyframes for the pulsing effect */
+    /* Container holding the emojis */
+    .icon-wrapper {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Starts pulsing after the hand transforms (3s delay) */
+      animation: pulse 1.5s ease-in-out infinite;
+      animation-delay: 3s;
+    }
+
+    /* Shared style for both emojis to overlap perfectly */
+    .emoji {
+      position: absolute;
+      font-size: 8rem;
+      line-height: 1;
+    }
+
+    /* The open 5-finger hand */
+    .hand-open {
+      opacity: 1;
+      /* Fades out slowly */
+      animation: fadeOut 3s forwards;
+    }
+
+    /* The middle finger */
+    .middle-finger {
+      opacity: 0;
+      /* Fades in slowly */
+      animation: fadeIn 3s forwards;
+    }
+
+    /* Keyframes for the transitions */
+    @keyframes fadeOut {
+      0%, 20% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.8); }
+    }
+
+    @keyframes fadeIn {
+      0%, 20% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.3);
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes textFade {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
+  <div class="top-text">
+    2 timer yarn
+  </div>
+
   <div class="icon-wrapper">
-    🖕
+    <span class="emoji hand-open">🖐️</span>
+    <span class="emoji middle-finger">🖕</span>
   </div>
 
 </body>
