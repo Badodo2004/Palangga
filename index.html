@@ -3,267 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For You, My Love 💕</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Icon Animation</title>
+  <style>
+    /* Reset margins and ensure full viewport height */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #1a1a1a; /* Dark background */
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      overflow: hidden;
+    }
+
+    /* Container for the animated icon */
+    .icon-wrapper {
+      font-size: 8rem; /* Large icon size */
+      display: inline-block;
+      animation: pulse 1.5s ease-in-out infinite; /* Continuous pulsing animation */
+    }
+
+    /* Keyframes for the pulsing effect */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ========== OPENING SCREEN ========== -->
-  <section id="opening-screen">
-    <canvas id="particle-canvas"></canvas>
-
-    <div class="opening-content">
-      <div class="petal-ring">
-        <span class="petal" style="--i:0"></span>
-        <span class="petal" style="--i:1"></span>
-        <span class="petal" style="--i:2"></span>
-        <span class="petal" style="--i:3"></span>
-        <span class="petal" style="--i:4"></span>
-        <span class="petal" style="--i:5"></span>
-        <span class="petal" style="--i:6"></span>
-        <span class="petal" style="--i:7"></span>
-      </div>
-
-      <p class="opening-eyebrow">with all my love</p>
-      <h1 class="opening-title">I made something<br /><em>special for you…</em></h1>
-      <p class="opening-sub">Putot pero palangga gihapon nako</p>
-
-      <!-- 🎵 MUSIC TOGGLE — swap the src to your audio file -->
-      <button id="music-btn" aria-label="Toggle music" title="Toggle background music">
-        <span class="music-icon">♪</span>
-        <span class="music-label">Play Music</span>
-      </button>
-      <!-- Hidden audio element — add your song path here -->
-      <audio id="bg-music" loop>
-        <!-- <source src="assets/music/your-song.mp3" type="audio/mpeg" /> -->
-      </audio>
-
-      <button id="open-btn" class="cta-btn">
-        <span class="btn-bg"></span>
-        <span class="btn-text">Open My Heart</span>
-        <span class="btn-icon">❤</span>
-      </button>
-    </div>
-
-    <!-- Floating hearts layer -->
-    <div id="floating-hearts" aria-hidden="true"></div>
-  </section>
-
-  <!-- ========== MAIN WEBSITE ========== -->
-  <main id="main-site" aria-hidden="true">
-
-    <!-- Scroll progress bar -->
-    <div id="progress-bar"></div>
-
-    <!-- Subtle ambient hearts -->
-    <div id="ambient-hearts" aria-hidden="true"></div>
-
-    <!-- ── SECTION 1 · LOVE MESSAGE ── -->
-    <section class="section love-message-section reveal">
-      <div class="section-inner">
-        <span class="section-tag">a message from my heart</span>
-
-        <!-- ✏️ CHANGE THE HEADING HERE -->
-        <h2 class="love-heading">To the Love<br /><em>of My Life </em><br /><em>Palangga shy </em></h2>
-
-        <div class="typewriter-wrapper">
-          <!-- ✏️ CHANGE THE LOVE MESSAGE HERE — keep it inside the span -->
-          <p id="typewriter-text" class="typewriter-msg" data-message="Happy monthsary, langga. I love you so much, and I’m really sorry kung nakalimot ko nga monthsary diay nato karon. Kabalo ko nga special ni nga adlaw para sa atoa, and I know nga dapat ako unta naka-remember ani. Wala jud nako tuyoa nga malimtan, na-busy lang jud kaayo ko lately, pero kabalo ko nga dili gihapon na enough nga reason. Sorry kaayo kung na-feel nimo nga wala nako gi-value atong day, kay tinuod jud nga importante kaayo ka sa akoa. Bisan usahay busy kaayo ko, please remember nga ikaw gihapon akong gihunahuna ug gipangga.
-
-I’m sorry kung nasakitan tika, love. I never wanted you to feel unimportant, especially on a day nga para unta sa atoa. You deserve better effort from me, and I promise nga paningkamotan nako nga mas ma-feel nimo akong love every day. Unta kabalo ka nga ikaw ra jud akong gusto, dili lang karon kundi hangtod sa umaabot. Unta ikaw na jud ang babae nga para sa akoa, akong last love, akong forever, ug akong future. Bisan naay misunderstandings, busy days, ug lisod nga panahon, ikaw gihapon akong pilion balik-balik. I love you forever."></p>
-          <span class="typewriter-cursor" aria-hidden="true">|</span>
-        </div>
-
-        <div class="deco-divider">
-          <span></span><span class="deco-heart">❤</span><span></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SECTION 2 · PHOTO GALLERY ── -->
-    <section class="section gallery-section reveal">
-      <div class="section-inner">
-        <span class="section-tag">our moments</span>
-        <h2 class="section-heading">Us, in<br /><em>pictures</em></h2>
-
-        <div class="gallery-grid">
-
-          <!-- ✏️ ADD / CHANGE PHOTOS AND CAPTIONS HERE -->
-          <!-- Duplicate a .gallery-card block to add more photos -->
-
-          <div class="gallery-card reveal-card" style="--delay:0s">
-            <div class="card-img-wrap">
-              <img src="assets/photo1.jpg" alt="Our favorite memory" loading="lazy" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-caption">
-              <span class="caption-icon">🌸</span>
-              <p>A sweet adventure with you</p>
-              <a class="card-link-button" href="https://drive.google.com/drive/folders/1tR3u_5qOuL_SunSPoebybAby55_j2NLV?usp=sharing" target="_blank" rel="noopener noreferrer">Open Photos</a>
-            </div>
-          </div>
-
-          <div class="gallery-card reveal-card" style="--delay:0.1s">
-            <div class="card-img-wrap">
-              <img class="photo-rotate-180" src="assets/photo2.jpg" alt="The smile I love" loading="lazy" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-caption">
-              <span class="caption-icon">✨</span>
-              <p>Close to you, always my happy place</p>
-              <a class="card-link-button" href="https://drive.google.com/drive/folders/1tR3u_5qOuL_SunSPoebybAby55_j2NLV?usp=sharing" target="_blank" rel="noopener noreferrer">Open Photos</a>
-            </div>
-          </div>
-
-          <div class="gallery-card reveal-card" style="--delay:0.2s">
-            <div class="card-img-wrap">
-              <img src="assets/photo3.jpg" alt="A moment I'll never forget" loading="lazy" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-caption">
-              <span class="caption-icon">💫</span>
-              <p>A beautiful view with my beautiful love.</p>
-              <a class="card-link-button" href="https://drive.google.com/drive/folders/1tR3u_5qOuL_SunSPoebybAby55_j2NLV?usp=sharing" target="_blank" rel="noopener noreferrer">Open Photos</a>
-            </div>
-          </div>
-
-          <div class="gallery-card reveal-card" style="--delay:0.3s">
-            <div class="card-img-wrap">
-              <img src="assets/photo4.jpg" alt="Always my favorite person" loading="lazy" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-caption">
-              <span class="caption-icon">🌹</span>
-              <p>Our simple moment, my favorite memory</p>
-              <a class="card-link-button" href="https://drive.google.com/drive/folders/1tR3u_5qOuL_SunSPoebybAby55_j2NLV?usp=sharing" target="_blank" rel="noopener noreferrer">Open Photos</a>
-            </div>
-          </div>
-
-          <!-- Example of a 5th photo card — uncomment to add:
-          <div class="gallery-card reveal-card" style="--delay:0.4s">
-            <div class="card-img-wrap">
-              <img src="assets/photos/photo5.jpg" alt="Another beautiful memory" loading="lazy" />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-caption">
-              <span class="caption-icon">💕</span>
-              <p>Another beautiful memory</p>
-            </div>
-          </div>
-          -->
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SECTION 3 · TIMELINE ── -->
-    <section class="section timeline-section reveal">
-      <div class="section-inner">
-        <span class="section-tag">our story</span>
-        <h2 class="section-heading">Chapters<br /><em>of Us</em></h2>
-
-        <div class="timeline">
-
-          <!-- ✏️ EDIT TIMELINE MEMORIES HERE -->
-          <!-- Duplicate a .timeline-item block to add more memories -->
-
-          <div class="timeline-item reveal-card" style="--delay:0s">
-            <div class="timeline-dot">
-              <span>🌸</span>
-            </div>
-            <div class="timeline-card glass-card">
-              <span class="timeline-date">Chapter I</span>
-              <h3>First Bonding</h3>
-              <p>swerte kaayu kos imoha kay buotan kaayu pero oa lang kaayu osahay</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal-card" style="--delay:0.15s">
-            <div class="timeline-dot">
-              <span>✨</span>
-            </div>
-            <div class="timeline-card glass-card">
-              <span class="timeline-date">Chapter II</span>
-              <h3>Palangging</h3>
-              <p>Pili on tika taga adlaw Iloveu langg</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal-card" style="--delay:0.3s">
-            <div class="timeline-dot">
-              <span>💡</span>
-            </div>
-            <div class="timeline-card glass-card">
-              <span class="timeline-date">Chapter III</span>
-              <h3>Laag</h3>
-              <p>Gwapa ang view niya gwapa sab akong gi picturan eheheh</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal-card" style="--delay:0.45s">
-            <div class="timeline-dot">
-              <span>🌟</span>
-            </div>
-            <div class="timeline-card glass-card">
-              <span class="timeline-date">Forever More</span>
-              <h3>Birthday</h3>
-              <p>Lipay kaayu ko dri kay gi invite ko nmo nag celebrate together with your family</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SECTION 4 · FINAL SURPRISE ── -->
-    <section class="section final-section reveal">
-      <div class="section-inner">
-
-        <!-- Pulsing heart -->
-        <div class="heart-container" aria-hidden="true">
-          <div class="big-heart">
-            <div class="heart-glow"></div>
-            <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg" class="heart-svg">
-              <path d="M50 85 C50 85 5 55 5 27 C5 14 15 5 27 5 C36 5 44 10 50 18 C56 10 64 5 73 5 C85 5 95 14 95 27 C95 55 50 85 50 85Z"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- ✏️ CHANGE THE FINAL MESSAGE HERE -->
-        <h2 class="final-heading">No matter what happens,<br /><em>I'll always choose you.</em></h2>
-
-        <button id="surprise-btn" class="cta-btn cta-btn--light">
-          <span class="btn-bg"></span>
-          <span class="btn-text">One More Thing</span>
-          <span class="btn-icon">💌</span>
-        </button>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========== MODAL ========== -->
-  <div id="love-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-backdrop"></div>
-    <div class="modal-box glass-card">
-      <div class="modal-hearts" aria-hidden="true"></div>
-
-      <button class="modal-close" aria-label="Close">&times;</button>
-
-      <div class="modal-inner">
-        <div class="modal-rose">🌹</div>
-        <!-- ✏️ CHANGE THE MODAL MESSAGE HERE -->
-        <h2 id="modal-title">I love you more than<br />words can ever explain.</h2>
-        <p class="modal-sub">PALANGGA</p>
-        <div class="modal-footer">💕</div>
-      </div>
-    </div>
+  <div class="icon-wrapper">
+    🖕
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>
